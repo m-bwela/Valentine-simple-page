@@ -1,0 +1,76 @@
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-yes {
+  background-color: #ff6b9d;
+  color: white;
+}
+
+.btn-yes:hover {
+  background-color: #ff8fb3;
+  transform: scale(1.1);
+}
+
+.btn-no {
+  background-color: #3c3c3c;
+  color: #d4d4d4;
+}
+
+.btn-no:hover {
+  transform: scale(0.9);
+}
+
+/* Blinking cursor */
+.cursor {
+  margin-top: 20px;
+}
+
+.blink {
+  animation: blink 1s infinite;
+  color: #d4d4d4;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Floating hearts */
+.floating-heart {
+  position: fixed;
+  font-size: 24px;
+  animation: floatUp 3s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-400px) scale(1.5);
+  }
+}
+
+#response {
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
