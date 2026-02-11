@@ -62,6 +62,65 @@
             font-size: 18px;
         }
 
+        /* Music button */
+        .music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff6b9d;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .music-btn:hover {
+            transform: scale(1.1);
+            background: #ff8fb3;
+        }
+        .music-btn.playing {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Countdown */
+        .countdown {
+            color: #9cdcfe;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .countdown span {
+            color: #ff6b9d;
+            font-weight: bold;
+        }
+
+        /* Love note */
+        .love-note {
+            background: linear-gradient(135deg, #ff6b9d22, #ff8fb322);
+            border: 1px solid #ff6b9d;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #d4d4d4;
+            font-style: italic;
+            text-align: center;
+        }
+        .love-note p {
+            margin: 10px 0;
+        }
+        .love-note .signature {
+            color: #ff6b9d;
+            font-style: normal;
+            margin-top: 15px;
+        }
+
         /* Card styling */
         .container {
         background-color: #252526;
@@ -76,20 +135,28 @@
     </style>
 </head>
 <body>
+    <!-- Music Player -->
+    <button class="music-btn" onclick="toggleMusic()">🎵</button>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
     <div class="container">
+        <!-- Countdown Timer -->
+        <div id="countdown" class="countdown"></div>
+        
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHJvZnFrOWxqbHBhYmZiNnFrcXJhYjNyMjNiNjRwcWV4cjE0ZWJrZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7TKoWXm3okO1kgHC/giphy.gif" alt="Heart" class="gif">
         
-        <p><span class="keyword">if</span> (<span class="variable">you</span>.<span class="function">beMyValentine</span>()) {</p>
-        <p>&nbsp;&nbsp;<span class="keyword">return</span> <span class="heart">💕 forever 💕</span>;</p>
-        <p>}</p>
+        <h2 class="heart">Hey Shaya, will you be my Valentine? 💕</h2>
         
         <div class="buttons">
             <button class="btn btn-yes" onclick="sayYes()">Yes 💕</button>
-            <button class="btn btn-no" onmouseover="noWay(this)">No</button>
+            <button class="btn btn-no" onmouseover="noWay(this)" ontouchstart="noWay(this)">No</button>
         </div>
 
         <p id="response" class="heart"></p>
         <div id="hearts-container"></div>
+        <div id="confetti-container"></div>
     </div>
 <script src="script.js"></script>
 </body>
