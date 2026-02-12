@@ -34,6 +34,7 @@ const escapeMessages = [
   'Think again! 💭',
   'No way! 🚫',
   'Catch me! 🏃',
+  'lol, not happening! 😂',
   'Just say Yes Shaya! 💕'
 ];
 let escapeCount = 0;
